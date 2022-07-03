@@ -22,7 +22,7 @@ title: Curious Maker's blog
 # email: email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Stay foolish, stay curious.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+  #baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://realfun.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: realfun
 # github_username:  realfun
