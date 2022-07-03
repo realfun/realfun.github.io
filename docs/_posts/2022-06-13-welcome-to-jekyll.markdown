@@ -28,12 +28,20 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
 
-
-<script src="https://utteranc.es/client.js"
-        repo="realfun.github.io"
-        issue-term="pathname"
-        theme="github-light"
+<script src="https://giscus.app/client.js"
+        data-repo="realfun/realfun.github.io-comments"
+        data-repo-id="R_kgDOHmWipQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOHmWipc4CQA7-"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>
+
 
