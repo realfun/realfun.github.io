@@ -6,6 +6,9 @@
     <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
 
     <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+      </div>
       <div class="footer-col footer-col-3">
         {{- site.description | escape -}}
       </div>
