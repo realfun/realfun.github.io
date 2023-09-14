@@ -35,7 +35,6 @@ plugins:
 
 header_pages:
   - index.md
-  - what.md
   - about.md
 
 # Exclude from processing.
