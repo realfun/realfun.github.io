@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[Bookmarklet] Focused Article Reading"
-date:   2022-07-03 03:01:16 -0700
+title:  "Focused Article Reading tool with Bookmarklet"
+date:   2023-09-14 00:00:16 -0700
 categories: Bookmarklet
 ---
 
