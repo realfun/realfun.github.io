@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Focused Reading by Bookmarklet"
+title:  "[Bookmarklet] Focused Article Reading"
 date:   2022-07-03 03:01:16 -0700
 categories: Bookmarklet
 ---
@@ -29,4 +29,3 @@ I created a bookmarklet for this:
 Just drag it onto your bookmark bar, and try click it on current page. So far it only works for typical websites where they use `article` or `main` properly. If you don't like the effect, refresh the page it will go away.
 
 Feel free to tweak it, and remember to comment below about your secret tweaks!
-
