@@ -26,6 +26,10 @@ layout: default
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
+{% if page.tags %}
+  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}
+
 <script src="https://giscus.app/client.js"
         data-repo="realfun/realfun.github.io-comments"
         data-repo-id="R_kgDOHmWipQ"
