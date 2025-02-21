@@ -16,6 +16,14 @@
             height: 100vh; /* Full viewport height */
             width: 100%;
         }
+        .school-label {
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -32,141 +40,52 @@
             attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // University data with coordinates and details (all 20)
+        // University data with coordinates, details, and short names
         const universities = [
             // Original Top 10
-            {
-                name: "Stanford University",
-                lat: 37.4275,
-                lon: -122.1697,
-                details: "Why Recommended: Top-tier engineering (CS, EE), aligns with Emily’s Arduino and programming skills.<br>City Proximity: 35 miles south of San Francisco.<br>Safety: Ranked #65 on Niche.<br>Weather: Mild, 50-75°F.<br>Flexibility: High flexibility in switching majors."
-            },
-            {
-                name: "UC Berkeley",
-                lat: 37.8719,
-                lon: -122.2585,
-                details: "Why Recommended: Strong mechanical and electrical engineering.<br>City Proximity: Adjacent to San Francisco.<br>Safety: Ranked #123 on Niche.<br>Weather: Mild, 50-70°F.<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Princeton University",
-                lat: 40.3431,
-                lon: -74.6601,
-                details: "Why Recommended: Excellent engineering and art programs.<br>City Proximity: 50 miles southwest of NYC.<br>Safety: Ranked #10 on Niche.<br>Weather: Cold winters (20-40°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Harvard University",
-                lat: 42.3744,
-                lon: -71.1169,
-                details: "Why Recommended: Strong SEAS engineering, top art resources.<br>City Proximity: Adjacent to Boston.<br>Safety: Ranked #21 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Columbia University",
-                lat: 40.8075,
-                lon: -73.9630,
-                details: "Why Recommended: Strong CS, urban art opportunities.<br>City Proximity: In NYC.<br>Safety: Ranked #35 on Niche.<br>Weather: Cold winters (25-40°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "University of Pennsylvania",
-                lat: 39.9522,
-                lon: -75.1932,
-                details: "Why Recommended: Bioengineering strength, art programs.<br>City Proximity: In Philadelphia.<br>Safety: Ranked #42 on Niche.<br>Weather: Cold winters (25-40°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "MIT",
-                lat: 42.3601,
-                lon: -71.0942,
-                details: "Why Recommended: Premier engineering (CS, EE).<br>City Proximity: Adjacent to Boston.<br>Safety: Ranked #50 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: Moderate flexibility."
-            },
-            {
-                name: "Cornell University",
-                lat: 42.4534,
-                lon: -76.4735,
-                details: "Why Recommended: Strong aeronautical/biomedical engineering.<br>City Proximity: 55 miles from Syracuse.<br>Safety: Ranked #20 on Niche.<br>Weather: Cold winters (15-35°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Carnegie Mellon University",
-                lat: 40.4427,
-                lon: -79.9435,
-                details: "Why Recommended: Top CS and robotics.<br>City Proximity: In Pittsburgh.<br>Safety: Ranked #32 on Niche.<br>Weather: Cold winters (20-40°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Duke University",
-                lat: 36.0014,
-                lon: -78.9382,
-                details: "Why Recommended: Biomedical engineering strength.<br>City Proximity: 25 miles from Raleigh.<br>Safety: Ranked #29 on Niche.<br>Weather: Mild winters (35-50°F).<br>Flexibility: High flexibility."
-            },
+            { name: "Stanford University", shortName: "Stanford", lat: 37.4275, lon: -122.1697, details: "Why Recommended: Top-tier engineering (CS, EE), aligns with Emily’s Arduino and programming skills.<br>City Proximity: 35 miles south of San Francisco.<br>Safety: Ranked #65 on Niche.<br>Weather: Mild, 50-75°F.<br>Flexibility: High flexibility in switching majors." },
+            { name: "UC Berkeley", shortName: "Berkeley", lat: 37.8719, lon: -122.2585, details: "Why Recommended: Strong mechanical and electrical engineering.<br>City Proximity: Adjacent to San Francisco.<br>Safety: Ranked #123 on Niche.<br>Weather: Mild, 50-70°F.<br>Flexibility: High flexibility." },
+            { name: "Princeton University", shortName: "Princeton", lat: 40.3431, lon: -74.6601, details: "Why Recommended: Excellent engineering and art programs.<br>City Proximity: 50 miles southwest of NYC.<br>Safety: Ranked #10 on Niche.<br>Weather: Cold winters (20-40°F).<br>Flexibility: High flexibility." },
+            { name: "Harvard University", shortName: "Harvard", lat: 42.3744, lon: -71.1169, details: "Why Recommended: Strong SEAS engineering, top art resources.<br>City Proximity: Adjacent to Boston.<br>Safety: Ranked #21 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility." },
+            { name: "Columbia University", shortName: "Columbia", lat: 40.8075, lon: -73.9630, details: "Why Recommended: Strong CS, urban art opportunities.<br>City Proximity: In NYC.<br>Safety: Ranked #35 on Niche.<br>Weather: Cold winters (25-40°F).<br>Flexibility: High flexibility." },
+            { name: "University of Pennsylvania", shortName: "Penn", lat: 39.9522, lon: -75.1932, details: "Why Recommended: Bioengineering strength, art programs.<br>City Proximity: In Philadelphia.<br>Safety: Ranked #42 on Niche.<br>Weather: Cold winters (25-40°F).<br>Flexibility: High flexibility." },
+            { name: "MIT", shortName: "MIT", lat: 42.3601, lon: -71.0942, details: "Why Recommended: Premier engineering (CS, EE).<br>City Proximity: Adjacent to Boston.<br>Safety: Ranked #50 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: Moderate flexibility." },
+            { name: "Cornell University", shortName: "Cornell", lat: 42.4534, lon: -76.4735, details: "Why Recommended: Strong aeronautical/biomedical engineering.<br>City Proximity: 55 miles from Syracuse.<br>Safety: Ranked #20 on Niche.<br>Weather: Cold winters (15-35°F).<br>Flexibility: High flexibility." },
+            { name: "Carnegie Mellon University", shortName: "CMU", lat: 40.4427, lon: -79.9435, details: "Why Recommended: Top CS and robotics.<br>City Proximity: In Pittsburgh.<br>Safety: Ranked #32 on Niche.<br>Weather: Cold winters (20-40°F).<br>Flexibility: High flexibility." },
+            { name: "Duke University", shortName: "Duke", lat: 36.0014, lon: -78.9382, details: "Why Recommended: Biomedical engineering strength.<br>City Proximity: 25 miles from Raleigh.<br>Safety: Ranked #29 on Niche.<br>Weather: Mild winters (35-50°F).<br>Flexibility: High flexibility." },
             // Next 10
-            {
-                name: "Caltech",
-                lat: 34.1377,
-                lon: -118.1253,
-                details: "Why Recommended: Elite engineering (mechanical, EE), fits Emily’s research.<br>City Proximity: 11 miles from Los Angeles.<br>Safety: Ranked #15 on Niche.<br>Weather: Mild, 50-80°F.<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Georgia Tech",
-                lat: 33.7756,
-                lon: -84.3963,
-                details: "Why Recommended: Top engineering (CS, mechanical), suits Emily’s skills.<br>City Proximity: In Atlanta.<br>Safety: Ranked #47 on Niche.<br>Weather: Mild winters, 40-60°F.<br>Flexibility: High flexibility."
-            },
-            {
-                name: "University of Illinois Urbana-Champaign",
-                lat: 40.1020,
-                lon: -88.2272,
-                details: "Why Recommended: Powerhouse in CS and EE.<br>City Proximity: 130 miles from Chicago.<br>Safety: Ranked #39 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "University of Michigan - Ann Arbor",
-                lat: 42.2780,
-                lon: -83.7382,
-                details: "Why Recommended: Top engineering (CS, mechanical).<br>City Proximity: 45 miles from Detroit.<br>Safety: Ranked #25 on Niche.<br>Weather: Cold winters (20-40°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Purdue University",
-                lat: 40.4237,
-                lon: -86.9212,
-                details: "Why Recommended: Strong aeronautical and CS engineering.<br>City Proximity: 65 miles from Indianapolis.<br>Safety: Ranked #36 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "UCLA",
-                lat: 34.0689,
-                lon: -118.4452,
-                details: "Why Recommended: Strong EE and CS, arts programs.<br>City Proximity: In Los Angeles.<br>Safety: Ranked #52 on Niche.<br>Weather: Mild, 50-75°F.<br>Flexibility: High flexibility."
-            },
-            {
-                name: "UT Austin",
-                lat: 30.2849,
-                lon: -97.7341,
-                details: "Why Recommended: Excellent CS and EE programs.<br>City Proximity: In Austin.<br>Safety: Ranked #44 on Niche.<br>Weather: Mild winters (40-60°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "UC San Diego",
-                lat: 32.8801,
-                lon: -117.2340,
-                details: "Why Recommended: Strong bioengineering and CS.<br>City Proximity: Near San Diego.<br>Safety: Ranked #58 on Niche.<br>Weather: Mild, 50-70°F.<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Northwestern University",
-                lat: 42.0548,
-                lon: -87.6737,
-                details: "Why Recommended: Engineering and interdisciplinary strength.<br>City Proximity: 12 miles from Chicago.<br>Safety: Ranked #5 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility."
-            },
-            {
-                name: "Rice University",
-                lat: 29.7174,
-                lon: -95.4018,
-                details: "Why Recommended: Top CS and bioengineering.<br>City Proximity: In Houston.<br>Safety: Ranked #19 on Niche.<br>Weather: Mild winters (40-60°F).<br>Flexibility: High flexibility."
-            }
+            { name: "Caltech", shortName: "Caltech", lat: 34.1377, lon: -118.1253, details: "Why Recommended: Elite engineering (mechanical, EE), fits Emily’s research.<br>City Proximity: 11 miles from Los Angeles.<br>Safety: Ranked #15 on Niche.<br>Weather: Mild, 50-80°F.<br>Flexibility: High flexibility." },
+            { name: "Georgia Tech", shortName: "Georgia Tech", lat: 33.7756, lon: -84.3963, details: "Why Recommended: Top engineering (CS, mechanical), suits Emily’s skills.<br>City Proximity: In Atlanta.<br>Safety: Ranked #47 on Niche.<br>Weather: Mild winters, 40-60°F.<br>Flexibility: High flexibility." },
+            { name: "University of Illinois Urbana-Champaign", shortName: "UIUC", lat: 40.1020, lon: -88.2272, details: "Why Recommended: Powerhouse in CS and EE.<br>City Proximity: 130 miles from Chicago.<br>Safety: Ranked #39 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility." },
+            { name: "University of Michigan - Ann Arbor", shortName: "Michigan", lat: 42.2780, lon: -83.7382, details: "Why Recommended: Top engineering (CS, mechanical).<br>City Proximity: 45 miles from Detroit.<br>Safety: Ranked #25 on Niche.<br>Weather: Cold winters (20-40°F).<br>Flexibility: High flexibility." },
+            { name: "Purdue University", shortName: "Purdue", lat: 40.4237, lon: -86.9212, details: "Why Recommended: Strong aeronautical and CS engineering.<br>City Proximity: 65 miles from Indianapolis.<br>Safety: Ranked #36 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility." },
+            { name: "UCLA", shortName: "UCLA", lat: 34.0689, lon: -118.4452, details: "Why Recommended: Strong EE and CS, arts programs.<br>City Proximity: In Los Angeles.<br>Safety: Ranked #52 on Niche.<br>Weather: Mild, 50-75°F.<br>Flexibility: High flexibility." },
+            { name: "UT Austin", shortName: "UT Austin", lat: 30.2849, lon: -97.7341, details: "Why Recommended: Excellent CS and EE programs.<br>City Proximity: In Austin.<br>Safety: Ranked #44 on Niche.<br>Weather: Mild winters (40-60°F).<br>Flexibility: High flexibility." },
+            { name: "UC San Diego", shortName: "UCSD", lat: 32.8801, lon: -117.2340, details: "Why Recommended: Strong bioengineering and CS.<br>City Proximity: Near San Diego.<br>Safety: Ranked #58 on Niche.<br>Weather: Mild, 50-70°F.<br>Flexibility: High flexibility." },
+            { name: "Northwestern University", shortName: "Northwestern", lat: 42.0548, lon: -87.6737, details: "Why Recommended: Engineering and interdisciplinary strength.<br>City Proximity: 12 miles from Chicago.<br>Safety: Ranked #5 on Niche.<br>Weather: Cold winters (20-35°F).<br>Flexibility: High flexibility." },
+            { name: "Rice University", shortName: "Rice", lat: 29.7174, lon: -95.4018, details: "Why Recommended: Top CS and bioengineering.<br>City Proximity: In Houston.<br>Safety: Ranked #19 on Niche.<br>Weather: Mild winters (40-60°F).<br>Flexibility: High flexibility." }
         ];
 
-        // Add markers with popups
+        // Add markers with popups and permanent labels
         universities.forEach(univ => {
+            // Add marker with popup
             const marker = L.marker([univ.lat, univ.lon]).addTo(map);
             marker.bindPopup(`<b>${univ.name}</b><br>${univ.details}`, {
-                autoClose: false, // Keeps popup open on hover
+                autoClose: false,
                 closeOnClick: false
             });
             marker.on('mouseover', function() { this.openPopup(); });
             marker.on('mouseout', function() { this.closePopup(); });
+
+            // Add permanent label using divIcon
+            const label = L.marker([univ.lat, univ.lon], {
+                icon: L.divIcon({
+                    className: 'school-label',
+                    html: univ.shortName,
+                    iconSize: [100, 20], // Width, height of the label
+                    iconAnchor: [50, -10] // Offset to position label above marker
+                })
+            }).addTo(map);
         });
     </script>
 </body>
