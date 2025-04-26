@@ -24,6 +24,8 @@ categories: Bookmarklet
 .flat-btn:focus     {outline:2px solid #005fa8; outline-offset:2px;} /* keyboard a11y */
 </style>
 
+![Clean Copy](/assets/clean-copy.jpeg)
+
 Bookmarklets are tiny JavaScript programs you stash in a browser bookmark and run with a click—no extension install,
 no compile step. Once you know how to save one and write a few lines of JS (or ask ChatGPT to do it),
 you can bend almost any webpage to your will, from stripping clutter to turning the page into a game of Asteroids.
